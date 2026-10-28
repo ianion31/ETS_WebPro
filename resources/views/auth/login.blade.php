@@ -35,16 +35,22 @@
             </label>
         </div>
 
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="rounded-md text-sm font-semibold text-brand hover:text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand" href="{{ route('password.request') }}">
-                    Lupa kata sandi?
-                </a>
-            @endif
+<div class="flex items-center justify-between mt-4">
+            <a class="rounded-md text-sm font-semibold text-brand hover:text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand" href="{{ route('register') }}">
+                Belum punya akun?
+            </a>
 
-            <x-primary-button class="ms-3">
-                Masuk
-            </x-primary-button>
+            <div class="flex items-center">
+                @if (Route::has('password.request'))
+                    <a class="rounded-md text-sm font-semibold text-brand hover:text-brand-dark focus:outline-none focus-visible:ring-2 focus-visible:ring-brand me-3" href="{{ route('password.request') }}">
+                        Lupa kata sandi?
+                    </a>
+                @endif
+
+                <x-primary-button class="ms-3">
+                    Masuk
+                </x-primary-button>
+            </div>
         </div>
     </form>
 </x-guest-layout>
