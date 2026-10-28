@@ -2,17 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class JalurMasuk extends Model
 {
-    protected $table = 'jalur_masuk';
-    public $timestamps = false;
+    use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = ['nama_jalur'];
 
     public function mahasiswa()
     {
-        return $this->hasMany(Mahasiswa::class, 'id_jalur');
+        return $this->hasMany(Mahasiswa::class);
     }
 }
