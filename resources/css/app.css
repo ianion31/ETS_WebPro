@@ -1,3 +1,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    [x-cloak] {
+        display: none !important;
+    }
+}
+
+/* Tombol yang bisa dipakai ulang di semua halaman: class="btn btn-primary" */
+@layer components {
+    .btn {
+        @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2;
+    }
+    .btn-primary {
+        @apply bg-brand text-white shadow-sm hover:bg-brand-dark;
+    }
+    .btn-secondary {
+        @apply border border-slate-300 bg-white text-slate-700 hover:bg-slate-50;
+    }
+}
+
+/* Satu-satunya animasi: grafik "tumbuh" saat dashboard dibuka */
+@keyframes bar-grow {
+    from { transform: scaleY(0); }
+}
+@keyframes seg-grow {
+    from { transform: scaleX(0); }
+}
+.bar-grow {
+    transform-origin: bottom;
+    animation: bar-grow 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+.seg-grow {
+    transform-origin: left;
+    animation: seg-grow 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@media (prefers-reduced-motion: reduce) {
+    .bar-grow,
+    .seg-grow {
+        animation: none;
+    }
+}
